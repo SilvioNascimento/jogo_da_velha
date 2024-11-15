@@ -46,30 +46,35 @@ def jogar():
         [" ", " ", " "],
     ]
     jogador = "X"
-    
-    visualizar_tabuleiro(tabuleiro)
-    
+     
     while True:
-        print(f"É a vez do {jogador}")
-        linha = int(input("Informe a posição da linha [de 0 a 2]: "))
-        coluna = int(input("Informe a posição da coluna [de 0 a 2]: "))
-        
-        if(linha < 0 or linha > 2) or (coluna < 0 or coluna > 2) or (tabuleiro[linha][coluna] != " "):
-            print("Jogada inválida! Tente novamente.")
-            continue
-        
-        tabuleiro[linha][coluna] = jogador
         visualizar_tabuleiro(tabuleiro)
+        print(f"É a vez do {jogador}")
         
-        if verificar_vencedor(tabuleiro, jogador):
-            print(f"O jogador {jogador} venceu!")
-            break
+        try:
+            linha = int(input("Informe a posição da linha [de 0 a 2]: "))
+            coluna = int(input("Informe a posição da coluna [de 0 a 2]: "))
+            
+            if(linha < 0 or linha > 2) or (coluna < 0 or coluna > 2) or (tabuleiro[linha][coluna] != " "):
+                print("\033[31mJogada inválida! Tente novamente.\033[0m\n")
+                continue
+            
+            tabuleiro[linha][coluna] = jogador
+            
+            if verificar_vencedor(tabuleiro, jogador):
+                visualizar_tabuleiro(tabuleiro) 
+                print(f"\033[32mO jogador {jogador} venceu!\033[0m")
+                break
+            
+            if verificar_empate(tabuleiro):
+                visualizar_tabuleiro(tabuleiro)
+                print("\033[33mEMPATE\033[0m")
+                break
+            
+            jogador = "O" if jogador == "X" else "X"
         
-        if verificar_empate(tabuleiro):
-            print("EMPATE")
-            break
-        
-        jogador = "O" if jogador == "X" else "X"
+        except ValueError:
+            print("\033[31mEntrada inválida. Por favor, insira um número inteiro de 0 e 2.\033[0m\n")
         
         
 jogar()
