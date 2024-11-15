@@ -1,33 +1,3 @@
-# tabuleiro = [
-#     [" ", " ", " "],
-#     [" ", " ", " "],
-#     [" ", " ", " "],
-# ]
-
-# tabuleiro = [
-#     ["X", "X", "X"],
-#     [" ", " ", " "],
-#     [" ", " ", " "],
-# ]
-
-# tabuleiro = [
-#     [" ", "X", " "],
-#     [" ", "X", " "],
-#     [" ", "X", " "],
-# ]
-
-# tabuleiro = [
-#     ["X", " ", " "],
-#     [" ", "X", " "],
-#     [" ", " ", "X"],
-# ]
-
-# tabuleiro = [
-#     [" ", " ", "X"],
-#     [" ", "X", " "],
-#     ["X", " ", " "],
-# ]
-
 def visualizar_tabuleiro(tabuleiro):
     cont = 0
     for linha in tabuleiro:
