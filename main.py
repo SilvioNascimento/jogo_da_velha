@@ -1,5 +1,34 @@
-def visualizar_tabuleiro(tab):
-    tabuleiro = tab
+# tabuleiro = [
+#     [" ", " ", " "],
+#     [" ", " ", " "],
+#     [" ", " ", " "],
+# ]
+
+# tabuleiro = [
+#     ["X", "X", "X"],
+#     [" ", " ", " "],
+#     [" ", " ", " "],
+# ]
+
+# tabuleiro = [
+#     [" ", "X", " "],
+#     [" ", "X", " "],
+#     [" ", "X", " "],
+# ]
+
+# tabuleiro = [
+#     ["X", " ", " "],
+#     [" ", "X", " "],
+#     [" ", " ", "X"],
+# ]
+
+# tabuleiro = [
+#     [" ", " ", "X"],
+#     [" ", "X", " "],
+#     ["X", " ", " "],
+# ]
+
+def visualizar_tabuleiro(tabuleiro):
     cont = 0
     for linha in tabuleiro:
         print(f"{linha[0]} | {linha[1]} | {linha[2]}")
@@ -30,8 +59,7 @@ def verificar_vencedor(tabuleiro, jogador):
     return False
 
 
-def verificar_empate(tab):
-    tabuleiro = tab
+def verificar_empate(tabuleiro):
     for linha in tabuleiro:
         for casa in linha:
             if casa == " ":
@@ -71,6 +99,7 @@ def jogar():
                 print("\033[33mEMPATE\033[0m")
                 break
             
+            # Operador ternário
             jogador = "O" if jogador == "X" else "X"
         
         except ValueError:
