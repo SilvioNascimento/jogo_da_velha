@@ -7,20 +7,7 @@ def visualizar_tabuleiro(tab):
             print('-' * 10)
             cont += 1
     print()
-        
 
-def add_peca_no_tabuleiro(tab, linha, coluna, jogador):
-    tabuleiro = tab
-    try:
-        if(tabuleiro[linha][coluna] == " "):
-            tabuleiro[linha][coluna] = jogador
-            visualizar_tabuleiro(tabuleiro)
-            
-        else:   # Colocar esta parte na parte final do jogo
-            print("\033[31mErro: a posição informada já está ocupada\033[0m")
-        
-    except IndexError:
-        print("\033[31mErro: a posição informada está fora de alcance do tabuleiro\033[0m")
 
 
 def verificar_vencedor(tabuleiro, jogador):
@@ -71,7 +58,8 @@ def jogar():
             print("Jogada inválida! Tente novamente.")
             continue
         
-        add_peca_no_tabuleiro(tabuleiro, linha, coluna, jogador)
+        tabuleiro[linha][coluna] = jogador
+        visualizar_tabuleiro(tabuleiro)
         
         if verificar_vencedor(tabuleiro, jogador):
             print(f"O jogador {jogador} venceu!")
